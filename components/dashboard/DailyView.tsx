@@ -160,9 +160,9 @@ export function DailyView() {
             {settings.showMotivation && <MotivationSection />}
 
             <div className="border-t border-primary/10 pt-8 mt-12">
-                <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50">Today&apos;s Schedule</h2>
-                    <div className="flex gap-2 items-center">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/50">Today&apos;s Schedule</h2>
+                    <div className="flex flex-wrap gap-2 items-center">
                         <PanicButton />
                         <BodyDoubling />
                         <GapFillerButton />

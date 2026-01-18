@@ -20,10 +20,10 @@ export function Navbar() {
                     <span className="font-bold text-lg hidden sm:inline-block">Timetable Master</span>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-                        <span className="text-[10px] font-black text-primary uppercase tracking-tighter">Lvl {fitnessProfile.level}</span>
-                        <div className="w-16 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                        <span className="text-[9px] sm:text-[10px] font-black text-primary uppercase tracking-tighter">Lvl {fitnessProfile.level}</span>
+                        <div className="w-12 sm:w-16 h-1 sm:h-1.5 bg-white/10 rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-gradient-to-r from-primary via-secondary to-primary animate-shimmer"
                                 style={{ width: `${(fitnessProfile.xp % 1000) / 10}%`, backgroundSize: '200% 100%' } as any}
@@ -31,14 +31,16 @@ export function Navbar() {
                         </div>
                     </div>
 
-                    {user ? (
-                        <>
-                            <AddWorkForm />
+                    <div className="flex items-center gap-1 sm:gap-2">
+                        {user ? (
+                            <>
+                                <AddWorkForm />
+                                <SettingsDialog />
+                            </>
+                        ) : (
                             <SettingsDialog />
-                        </>
-                    ) : (
-                        <SettingsDialog />
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
         </header>

@@ -215,12 +215,12 @@ export function WorkCard({ work }: { work: WorkItem }) {
                             {isDone ? "Update Progress" : "Log Progress"}
                         </Button>
                     </DialogTrigger>
-                    <DialogContent>
+                    <DialogContent className="w-[95vw] sm:max-w-md">
                         <DialogHeader>
                             <DialogTitle>Log Progress for {work.name}</DialogTitle>
                         </DialogHeader>
                         <form onSubmit={handleSubmitProgress} className="space-y-4">
-                            <div className="space-y-2">
+                            <div className="grid grid-cols-1 gap-2">
                                 <Label>Percentage Completed Today</Label>
                                 <Input
                                     type="number"
@@ -232,7 +232,7 @@ export function WorkCard({ work }: { work: WorkItem }) {
                                     autoFocus
                                 />
                             </div>
-                            <div className="space-y-2">
+                            <div className="grid grid-cols-1 gap-2">
                                 <Label className="text-xs">Focus Quality (1-10)</Label>
                                 <Input
                                     type="number"

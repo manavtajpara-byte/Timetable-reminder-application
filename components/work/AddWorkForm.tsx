@@ -92,21 +92,21 @@ export function AddWorkForm() {
                     <Plus className="h-4 w-4" /> Add Activity
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[425px] w-[95vw] max-h-[90vh] overflow-hidden flex flex-col">
                 <DialogHeader>
                     <DialogTitle>Add New Activity</DialogTitle>
                     <DialogDescription>
                         Schedule a new task or workout.
                     </DialogDescription>
                 </DialogHeader>
-                <form onSubmit={handleSubmit} className="grid gap-4 py-4 max-h-[70vh] overflow-y-auto px-1">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="category" className="text-right">Category</Label>
+                <form onSubmit={handleSubmit} className="grid gap-4 py-4 overflow-y-auto px-1 flex-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                        <Label htmlFor="category" className="sm:text-right">Category</Label>
                         <select
                             id="category"
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
-                            className="col-span-3 flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="sm:col-span-3 flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         >
                             <option value="work">Work / Study</option>
                             <option value="fitness">Fitness</option>
@@ -115,13 +115,13 @@ export function AddWorkForm() {
                         </select>
                     </div>
 
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">Name</Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                        <Label htmlFor="name" className="sm:text-right">Name</Label>
                         <Input
                             id="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            className="col-span-3"
+                            className="sm:col-span-3"
                             placeholder="e.g. HIIT Workout"
                             required
                         />
@@ -129,8 +129,8 @@ export function AddWorkForm() {
 
                     {category === 'fitness' && (
                         <>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label htmlFor="intensity" className="text-right">Intensity (1-10)</Label>
+                            <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                                <Label htmlFor="intensity" className="sm:text-right">Intensity (1-10)</Label>
                                 <Input
                                     id="intensity"
                                     type="number"
@@ -138,12 +138,12 @@ export function AddWorkForm() {
                                     max="10"
                                     value={intensity}
                                     onChange={(e) => setIntensity(e.target.value)}
-                                    className="col-span-3"
+                                    className="sm:col-span-3"
                                 />
                             </div>
-                            <div className="grid grid-cols-4 items-center gap-4">
-                                <Label className="text-right">Equipment</Label>
-                                <div className="col-span-3 flex flex-wrap gap-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                                <Label className="sm:text-right">Equipment</Label>
+                                <div className="sm:col-span-3 flex flex-wrap gap-2">
                                     {['gym', 'dumbbells', 'yoga-mat'].map((eq) => (
                                         <button
                                             key={eq}
@@ -159,24 +159,24 @@ export function AddWorkForm() {
                         </>
                     )}
 
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="time" className="text-right">Start Time</Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                        <Label htmlFor="time" className="sm:text-right">Start Time</Label>
                         <Input
                             id="time"
                             type="time"
                             value={startTime}
                             onChange={(e) => setStartTime(e.target.value)}
-                            className="col-span-3"
+                            className="sm:col-span-3"
                             required
                         />
                     </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="weight" className="text-right text-xs">Priority Weight</Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                        <Label htmlFor="weight" className="sm:text-right text-xs">Priority Weight</Label>
                         <select
                             id="weight"
                             value={weight}
                             onChange={(e) => setWeight(e.target.value)}
-                            className="col-span-3 flex h-9 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-1 text-xs ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                            className="sm:col-span-3 flex h-9 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-1 text-xs ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                         >
                             <option value="1">1 - Low (Admin/Email)</option>
                             <option value="2">2 - Normal (Routine)</option>
@@ -186,21 +186,21 @@ export function AddWorkForm() {
                         </select>
                     </div>
 
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="duration" className="text-right">Duration (m)</Label>
+                    <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                        <Label htmlFor="duration" className="sm:text-right">Duration (m)</Label>
                         <Input
                             id="duration"
                             type="number"
                             min="1"
                             value={duration}
                             onChange={(e) => setDuration(e.target.value)}
-                            className="col-span-3"
+                            className="sm:col-span-3"
                             required
                         />
                     </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label className="text-right">Frequency</Label>
-                        <div className="col-span-3 flex flex-wrap gap-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-4 items-start sm:items-center gap-2 sm:gap-4">
+                        <Label className="sm:text-right">Frequency</Label>
+                        <div className="sm:col-span-3 flex flex-wrap gap-1">
                             {DAYS.map((day, index) => (
                                 <button
                                     key={day}
